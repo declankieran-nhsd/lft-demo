@@ -50,3 +50,5 @@ The entire set of interactions is also included in a [postman collection](postma
   * A Document Bundle with an example Composition as well as the LFT resources
 * Laboratory Report Document Bundle Query
   * A query for the Report using the primary business identifier used, i.e. REP-20220308-008902
+
+**Note**: This assumes that a FHIR server is running at localhost:8080
