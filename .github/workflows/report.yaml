@@ -19,7 +19,7 @@ jobs:
         run: mkdir ~/package; cp packages/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz ~/package 
 
       - name: Run FHIR server
-        run: docker run -d --network="host" -v ~/package:/package -p 8080:8080 -e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild -e hapi.fhir.implementationguides.ukcore.version=0.0.3-pre-release -e hapi.fhir.implementationguides.ukcore.url=file:///package/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz hapiproject/hapi:v6.2.2
+        run: docker run -d -v ~/package:/package -p 8080:8080 -e hapi.fhir.daoconfig_client_id_strategy=UUID -e hapi.fhir.client_id_strategy=ANY -e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild -e hapi.fhir.implementationguides.ukcore.version=0.0.3-pre-release -e hapi.fhir.implementationguides.ukcore.url=file:///package/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz hapiproject/hapi:v6.2.2
 
       - name: Sleep to give server time to start
         run: sleep 120
