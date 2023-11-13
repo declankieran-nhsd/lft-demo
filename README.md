@@ -28,9 +28,10 @@ The following query will return all the resources required to create a report fo
 
 `http://localhost:8080/fhir/DiagnosticReport?identifier=REP-20220308-008902&_include=DiagnosticReport:based-on&_include=DiagnosticReport:specimen&_include:iterate=ServiceRequest:patient&_include=DiagnosticReport:result&_include:iterate=Observation:has-member`
 
-This searchset Bundle is then transformed into a Document by inserting a Composition and the require metadata, as well as removing any redundant elements.  The python script [report.py](operations/report.py) provides this function in the pipeline.
+This searchset Bundle is then transformed into a Document by inserting a Composition and the required metadata, as well as removing any redundant elements.  The python script [report.py](operations/report.py) provides this function in the pipeline.
 
 ## Output the example Document
 
-These steps are all run in a github action and the resulting document output is published as an artefact in the pipeline.
+These steps are all ran in a github action and the resulting document output is published as an artefact in the pipeline.
 
+![image](https://github.com/declankieran-nhsd/lft-demo/assets/93662162/47b93f8a-e06b-4b59-be15-9058ca33af99)
