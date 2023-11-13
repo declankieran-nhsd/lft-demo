@@ -23,10 +23,10 @@ jobs:
         run: sleep 120
 
       - name: Create the LFT request
-        run: curl -X POST -H "Content-type: application/fhir+json;fhirVersion=4.0" -d "@resources/TRANSACTION-path-R4-example-bundle-LFT-UandE-request.json" "http://localhost:8080/fhir"
+        run: curl -X POST -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/TRANSACTION-path-R4-example-bundle-LFT-UandE-request.json http://localhost:8080/fhir
 
       - name: Update the LFT request with Observations
-        run: curl -X POST -H "Content-type: application/fhir+json;fhirVersion=4.0" -d "@resources/TRANSACTION-path-R4-example-bundle-LFT-UandE-report.json" "http://localhost:8080/fhir"
+        run: curl -X POST -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/TRANSACTION-path-R4-example-bundle-LFT-UandE-report.json http://localhost:8080/fhir
 
       - name: Create the Laboratory Report
         run: python operations/report.py
