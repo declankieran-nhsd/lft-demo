@@ -34,4 +34,4 @@ This searchset Bundle is then transformed into a Document by inserting a Composi
 
 These steps are all ran in a github action and the resulting document output is published as an artefact in the pipeline.
 
-![image](https://github.com/declankieran-nhsd/lft-demo/assets/93662162/47b93f8a-e06b-4b59-be15-9058ca33af99)
+<img src="https://github.com/declankieran-nhsd/lft-demo/assets/93662162/47b93f8a-e06b-4b59-be15-9058ca33af99" width="50%">
