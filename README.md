@@ -38,7 +38,7 @@ These steps are all ran in a github action and the resulting document output is 
 
 ## POSTMAN Examples
 
-The entire set of interactions is also include in a [postman collection](postman/lft-example-interactions.postman_collection.json).  This includes:
+The entire set of interactions is also included in a [postman collection](postman/lft-example-interactions.postman_collection.json).  This includes:
 
 * LFT Request
   * Transaction Bundle with initial LFT request
