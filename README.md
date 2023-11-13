@@ -35,3 +35,18 @@ This searchset Bundle is then transformed into a Document by inserting a Composi
 These steps are all ran in a github action and the resulting document output is published as an artefact in the pipeline.
 
 <img src="https://github.com/declankieran-nhsd/lft-demo/assets/93662162/47b93f8a-e06b-4b59-be15-9058ca33af99" width="50%">
+
+## POSTMAN Examples
+
+The entire set of interactions is also include in a [postman collection](postman/lft-example-interactions.postman_collection.json).  This includes:
+
+* LFT Request
+  * Transaction Bundle with initial LFT request
+* LFT Result
+  * Transaction Bundle to update with results, i.e add Observations
+* LFT Report Query
+  * A query that will return all resources available to construct the Document Bundle for the Laboratory Report
+* Store Laboratory Report Document
+  * A Document Bundle with an example Composition as well as the LFT resources
+* Laboratory Report Document Bundle Query
+  * A query for the Report using the primary business identifier used, i.e. REP-20220308-008902
