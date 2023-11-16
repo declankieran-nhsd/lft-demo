@@ -27,7 +27,7 @@ To load the UKCore package a mount folder can be created and the package can be 
 
 Meaning of options (in order)
 
-* `run -d`, run in detattached mode, needed to move on in pipeline
+* `run -d`, run in detattached mode, needed to move on in pipeline, remove the `-d` to keep the terminal attached
 * `--v ~/package:/package`, this mounts a folder on the host filesystem that will be mount on the docker (guest) file system, in this case `~/package` will be mounted to `/package`
 * `-p 8080:8080` expose port range 8080:8080, the server will be accessed on port 8080
 * `-e hapi.fhir.daoconfig_client_id_strategy=UUID`, use UUIDs as the default ID's when creating resources, otherwise the default is sequential integers
