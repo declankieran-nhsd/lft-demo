@@ -2,6 +2,8 @@
 
 A demo using the [HAPI-FHIR Starter Project](https://github.com/hapifhir/hapi-fhir-jpaserver-starter) to construct a report for an [LFT order](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/All-Profiles/Examples/Bundles/Liver-Function-and-U-Es-Report) conformant to the [HL7 Europe Laboratory Report](https://build.fhir.org/ig/hl7-eu/laboratory) specification.
 
+Example runs of these steps can be found in the [Actions](https://github.com/declankieran-nhsd/lft-demo/actions)
+
 The steps in this demo are as follows:
 
 ## Bring up FHIR server with UKCore package
