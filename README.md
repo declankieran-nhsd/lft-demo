@@ -14,14 +14,14 @@ will bring up [HAPI-FHIR Starter Project](https://github.com/hapifhir/hapi-fhir-
 
 To load the UKCore package a mount folder can be created and the package can be loaded using the following docker command, provided the package has been copied to the mount folder, i.e. `~/package`.  This also makes the server use UUIDs by default.
 
-`docker run -d \
-        --v ~/package:/package \
-        -p 8080:8080 \
-        -e hapi.fhir.daoconfig_client_id_strategy=UUID \
-        -e hapi.fhir.client_id_strategy=ANY \
-        -e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild \
-        -e hapi.fhir.implementationguides.ukcore.version=0.0.3-pre-release \
-        -e hapi.fhir.implementationguides.ukcore.url=file:///package/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz hapiproject/hapi:v6.2.2`
+`docker run -d \`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`--v ~/package:/package \`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-p 8080:8080 \`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-e hapi.fhir.daoconfig_client_id_strategy=UUID \`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-e hapi.fhir.client_id_strategy=ANY \`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild \`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-e hapi.fhir.implementationguides.ukcore.version=0.0.3-pre-release \`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-e hapi.fhir.implementationguides.ukcore.url=file:///package/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz hapiproject/hapi:v6.2.2`  
 
 Meaning of options (in order)
 
