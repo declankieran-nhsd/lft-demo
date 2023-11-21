@@ -37,7 +37,7 @@ jobs:
         run: sleep 30; curl http://localhost:8080/fhir/Bundle?identifier=REP-20220308-008902 | jq '.entry[0].resource' > LFT_Laboratory_Report_Custom_Operation.json
 
       - name: Put corresponding example Composition resource for report
-        run: curl -X PUT -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/path-R4-example-composition-LFT-UandE-report.json http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a
+        run: curl -X PUT -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/path-R4-example-composition-LFT-UandE-example.json http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a
 
       - name: Persist the Document Bundle with GET on $document
         run: curl http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a/\$document?persist=true > LFT_Laboratory_Report_HAPI_document_Operation.json
