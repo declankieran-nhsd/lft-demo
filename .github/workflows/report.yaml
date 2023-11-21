@@ -31,7 +31,7 @@ jobs:
         run: curl -X POST -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/TRANSACTION-path-R4-example-bundle-LFT-UandE-report.json http://localhost:8080/fhir
 
       - name: Create the Laboratory Report using custom Operation (_query not supported on HAPI STARTER yet)
-        run: python operations/report.py
+        run: python operations/document.py
 
       - name: Query the Document Bundle
         run: sleep 30; curl http://localhost:8080/fhir/Bundle?identifier=REP-20220308-008902 | jq '.entry[0].resource' > LFT_Laboratory_Report_Custom_Operation.json
@@ -39,17 +39,11 @@ jobs:
       - name: Put corresponding example Composition resource for report
         run: curl -X PUT -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/path-R4-example-composition-LFT-UandE-report.json http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a
 
-      - name: Output the Document Bundle from the custom operation
-        uses: actions/upload-artifact@v3
-        with:
-          name: LFT_Laboratory_Report
-          path: LFT_Laboratory_Report.json
-
       - name: Persist the Document Bundle with GET on $document
         run: curl http://fhir.cirdan.com:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a/$document?persist=true > LFT_Laboratory_Report_HAPI_document_Operation.json
 
       - name: Output the Document Bundle generated with the $document operation
         uses: actions/upload-artifact@v3
         with:
-          name: LFT_Laboratory_Report
-          path: LFT_Laboratory_Report.json
+          name: LFT_Laboratory_Report_Examples
+          path: LFT_Laboratory_Report*
