@@ -1,0 +1,113 @@
+{
+  "resourceType": "Composition",
+  "id": "138ffee6-fbc1-49e2-bfbc-e14b777ab62a",
+  "meta": {
+    "profile": [
+      "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Composition"
+    ]
+  },
+  "identifier": {
+    "system": "http://Y8J7D-pathlab001.com/report",
+    "value": "REP-20220308-008902"
+  },
+  "status": "final",
+  "type": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "4241000179101",
+        "display": "Laboratory report"
+      }
+    ],
+    "text": "Laboratory report"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "371525003",
+          "display": "Clinical procedure report"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4"
+  },
+  "date": "2022-03-30T11:24:26+01:00",
+  "author": [
+    {
+      "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+    }
+  ],
+  "title": "Laboratory report",
+  "attester": [
+    {
+      "mode": "professional",
+      "party": {
+        "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+      }
+    },
+    {
+      "mode": "legal",
+      "time": "2022-03-25T11:00:00+01:00",
+      "party": {
+        "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+      }
+    }
+  ],
+  "custodian": {
+    "reference": "urn:uuid:3c43b5b3-06d6-445f-ae9a-48d5f05df434"
+  },
+  "section": [
+    {
+      "title": "Laboratory examinations",
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-RecordStandardHeadings",
+            "code": "test-result",
+            "display": "Test result"
+          }
+        ]
+      },
+      "section": [
+        {
+          "title": "Liver functions tests",
+          "code": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "26958001",
+                "display": "Hepatic function panel"
+              }
+            ]
+          },
+          "entry": [
+            {
+              "reference": "urn:uuid:33a88119-6dbc-4bdf-809a-c1d822b74e90"
+            }
+          ]
+        },
+        {
+          "title": "Urea and electrolytes",
+          "code": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "26958001",
+                "display": "Hepatic function panel"
+              }
+            ]
+          },
+          "entry": [
+            {
+              "reference": "urn:uuid:a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

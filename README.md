@@ -42,7 +42,11 @@ The server will take around a minute to a minute and a half to fully start.
 
 Two [transaction Bundles](https://www.hl7.org/fhir/http.html#transaction) have been created for the examples for the [Liver Function examples](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/Examples/Examples-Index) in the pathlogy IG.  These transactions examples are using [PUTs](https://hl7.org/fhir/http.html#update) in the request, so it would be possible to modify and reload in an idempotent fashion. 
 
-## Query for the resource associated with the LFT tests
+## Use a custom operation - implemented in a python script
+
+This is to verify that the required resources can be queried and constructed into a Bundle.
+
+### Query for the resource associated with the LFT tests
 
 The following query will return all the resources required to create a report for this particular request using the primary DiagnosticReport business identifier.
 
@@ -59,11 +63,25 @@ Description of parameters
 
 This searchset Bundle is then transformed into a Document by inserting a Composition and the required metadata, as well as removing any redundant elements.  The python script [report.py](operations/report.py) provides this function in the pipeline.
 
-## Output the example Document
+### Output the example Document
 
 These steps are all ran in a github action and the resulting document output is published as an artefact in the pipeline.
 
 <img src="https://github.com/declankieran-nhsd/lft-demo/assets/93662162/47b93f8a-e06b-4b59-be15-9058ca33af99" width="50%">
+
+## Use the built in $document operation in the HAPI STARTER server
+
+### Post the same example Composition resource to the Composition endpoint
+
+The same Composition resource will be posted (put so ID can be easily kept), i.e.
+
+`curl http://fhir.cirdan.com:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a/$document?persist=true`
+
+See the [composition-operation-document](https://build.fhir.org/composition-operation-document.html) documentation.
+
+### Output the example Document
+
+Again, the the resulting document output is published as an artefact in the pipeline as above.
 
 ## POSTMAN Examples
 
