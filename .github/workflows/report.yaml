@@ -40,7 +40,7 @@ jobs:
         run: curl -X PUT -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/path-R4-example-composition-LFT-UandE-report.json http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a
 
       - name: Persist the Document Bundle with GET on $document
-        run: curl http://fhir.cirdan.com:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a/$document?persist=true > LFT_Laboratory_Report_HAPI_document_Operation.json
+        run: curl http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a/$document?persist=true > LFT_Laboratory_Report_HAPI_document_Operation.json
 
       - name: Output the Document Bundle generated with the $document operation
         uses: actions/upload-artifact@v3
