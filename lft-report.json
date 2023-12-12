@@ -1,124 +1,106 @@
 {
   "resourceType": "Bundle",
-  "id": "path-R4-example-bundle-LFT-UandE-report",
+  "id": "2805ab57-1094-425d-ad6d-0165dfae9d38",
   "meta": {
-    "lastUpdated": "2022-03-08T14:23:00+00:00",
+    "versionId": "1",
+    "lastUpdated": "2023-11-21T01:53:24.324+00:00",
+    "source": "#1Z17VzWm2gINfKqp",
     "profile": [
       "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"
     ]
   },
-  "type": "transaction",
+  "identifier": {
+    "system": "http://Y8J7D-pathlab001.com/report",
+    "value": "REP-20220308-008902"
+  },
+  "type": "document",
+  "timestamp": "2023-11-21T01:53:24.301066+00:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+      "fullUrl": "http://localhost:8080/fhir/DiagnosticReport/35d46ca1-f253-4c97-b7ee-fb5fccdf6c20",
       "resource": {
-        "resourceType": "Organization",
-        "id": "8a6d85b8-9837-4fed-a257-4cf207988338",
+        "resourceType": "DiagnosticReport",
+        "id": "35d46ca1-f253-4c97-b7ee-fb5fccdf6c20",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
-            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-DiagnosticReport"
           ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\"> Diagnostic studies report </div><table class=\"hapiPropertyTable\"><tbody><tr><td>Status</td><td>FINAL</td></tr><tr><td>Issued</td><td> 08 March 2022 14:23:00 </td></tr></tbody></table><table class=\"hapiTableOfValues\"><thead><tr><td>Name</td><td>Value</td><td>Interpretation</td><td>Reference Range</td><td>Status</td></tr></thead><tbody><tr class=\"hapiTableOfValuesRowOdd\"><td> Hepatic function panel </td><td/><td/><td/><td>FINAL</td></tr><tr class=\"hapiTableOfValuesRowEven\"><td> Hepatic function panel </td><td/><td/><td/><td>FINAL</td></tr></tbody></table></div>"
         },
         "identifier": [
           {
-            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "Y8J7D"
+            "system": "http://Y8J7D-pathlab001.com/report",
+            "value": "REP-20220308-008902"
           }
         ],
-        "name": "TD008362 PATH LAB 001",
-        "address": [
+        "basedOn": [
           {
-            "line": [
-              "PATHOLOGY LAB",
-              "7-8 WELLINGTON PLACE"
-            ],
-            "city": "LEEDS",
-            "district": "WEST YORKSHIRE",
-            "postalCode": "LS1 4AP"
+            "reference": "ServiceRequest/1c38d507-9ad7-4b49-ba91-7da204842cac",
+            "type": "http://hl7.org/fhir/StructureDefinition/UKCore-ServiceRequest"
+          },
+          {
+            "reference": "ServiceRequest/8660ef6a-65ef-408f-92ce-b4d6d03d783c",
+            "type": "http://hl7.org/fhir/StructureDefinition/UKCore-ServiceRequest"
           }
-        ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:3c43b5b3-06d6-445f-ae9a-48d5f05df434",
-      "resource": {
-        "resourceType": "Organization",
-        "id": "3c43b5b3-06d6-445f-ae9a-48d5f05df434",
-        "meta": {
-          "profile": [
-            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "721981007",
+              "display": "Diagnostic studies report"
+            }
           ]
         },
-        "identifier": [
-          {
-            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "B82033"
-          }
-        ],
-        "name": "PICKERING MEDICAL PRACTICE",
-        "address": [
-          {
-            "line": [
-              "SOUTHGATE"
-            ],
-            "city": "PICKERING",
-            "district": "NORTH YORKSHIRE",
-            "postalCode": "YO18 8BL"
-          }
-        ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Organization/3c43b5b3-06d6-445f-ae9a-48d5f05df434"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe",
-      "resource": {
-        "resourceType": "Practitioner",
-        "id": "9a835acf-d715-4d84-8dcf-a8435f6417fe",
-        "meta": {
-          "profile": [
-            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Practitioner"
-          ]
+        "subject": {
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "display": "WELSH, Joel"
         },
-        "identifier": [
+        "issued": "2022-03-08T14:23:00+00:00",
+        "performer": [
           {
-            "system": "https://fhir.nhs.uk/Id/sds-user-id",
-            "value": "TBC"
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
+            "display": "TD008362 PATH LAB 001"
           }
         ],
-        "name": [
+        "specimen": [
           {
-            "use": "official",
-            "family": "GASKELL",
-            "given": [
-              "Gale"
-            ],
-            "prefix": [
-              "Dr"
-            ]
+            "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
+          },
+          {
+            "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe"
       }
     },
     {
-      "fullUrl": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+      "fullUrl": "http://localhost:8080/fhir/Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
       "resource": {
         "resourceType": "Patient",
         "id": "ab87a3f8-1d37-44a9-804e-5e962598a6e4",
         "meta": {
+          "versionId": "2",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Patient"
           ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Joel <b>WELSH </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>9727710638</td></tr><tr><td>Address</td><td><span>ACONBURY </span><br/><span>LARPOOL DRIVE </span><br/></td></tr><tr><td>Date of birth</td><td><span>23 August 1972</span></td></tr></tbody></table></div>"
         },
         "identifier": [
           {
@@ -161,18 +143,17 @@
             "postalCode": "YO22 4ND"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4"
       }
     },
     {
-      "fullUrl": "urn:uuid:1c38d507-9ad7-4b49-ba91-7da204842cac",
+      "fullUrl": "http://localhost:8080/fhir/ServiceRequest/1c38d507-9ad7-4b49-ba91-7da204842cac",
       "resource": {
         "resourceType": "ServiceRequest",
         "id": "1c38d507-9ad7-4b49-ba91-7da204842cac",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:14.772+00:00",
+          "source": "#asMFepNU1ObWn8lO",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-ServiceRequest"
           ]
@@ -199,32 +180,31 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "authoredOn": "2022-03-07T09:48:00+00:00",
         "requester": {
-          "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe",
+          "reference": "Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe",
           "display": "GASKELL, Gale"
         },
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "ServiceRequest/1c38d507-9ad7-4b49-ba91-7da204842cac"
       }
     },
     {
-      "fullUrl": "urn:uuid:8660ef6a-65ef-408f-92ce-b4d6d03d783c",
+      "fullUrl": "http://localhost:8080/fhir/ServiceRequest/8660ef6a-65ef-408f-92ce-b4d6d03d783c",
       "resource": {
         "resourceType": "ServiceRequest",
         "id": "8660ef6a-65ef-408f-92ce-b4d6d03d783c",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:14.772+00:00",
+          "source": "#asMFepNU1ObWn8lO",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-ServiceRequest"
           ]
@@ -251,98 +231,31 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "authoredOn": "2022-03-07T09:48:00+00:00",
         "requester": {
-          "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe",
+          "reference": "Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe",
           "display": "GASKELL, Gale"
         },
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "ServiceRequest/8660ef6a-65ef-408f-92ce-b4d6d03d783c"
       }
     },
     {
-      "fullUrl": "urn:uuid:35d46ca1-f253-4c97-b7ee-fb5fccdf6c20",
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "35d46ca1-f253-4c97-b7ee-fb5fccdf6c20",
-        "meta": {
-          "profile": [
-            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-DiagnosticReport"
-          ]
-        },
-        "identifier": [
-          {
-            "system": "http://Y8J7D-pathlab001.com/report",
-            "value": "REP-20220308-008902"
-          }
-        ],
-        "basedOn": [
-          {
-            "reference": "urn:uuid:1c38d507-9ad7-4b49-ba91-7da204842cac",
-            "type": "http://hl7.org/fhir/StructureDefinition/UKCore-ServiceRequest"
-          },
-          {
-            "reference": "urn:uuid:8660ef6a-65ef-408f-92ce-b4d6d03d783c",
-            "type": "http://hl7.org/fhir/StructureDefinition/UKCore-ServiceRequest"
-          }
-        ],
-        "status": "final",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "721981007",
-              "display": "Diagnostic studies report"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
-          "display": "WELSH, Joel"
-        },
-        "issued": "2022-03-08T14:23:00+00:00",
-        "performer": [
-          {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
-            "display": "TD008362 PATH LAB 001"
-          }
-        ],
-        "specimen": [
-          {
-            "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
-          }
-        ],
-        "result": [
-          {
-            "reference": "urn:uuid:33a88119-6dbc-4bdf-809a-c1d822b74e90"
-          },
-          {
-            "reference": "urn:uuid:a5c7f5e2-eb95-469b-b588-f7861c260ccb"
-          }
-        ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "DiagnosticReport/35d46ca1-f253-4c97-b7ee-fb5fccdf6c20"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d",
+      "fullUrl": "http://localhost:8080/fhir/Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d",
       "resource": {
         "resourceType": "Specimen",
         "id": "bab0eaec-1ec5-4598-b660-90bb38a1030d",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Specimen"
           ]
@@ -368,30 +281,29 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "receivedTime": "2022-03-07T14:54:00+00:00",
         "request": [
           {
-            "reference": "urn:uuid:8660ef6a-65ef-408f-92ce-b4d6d03d783c"
+            "reference": "ServiceRequest/8660ef6a-65ef-408f-92ce-b4d6d03d783c"
           }
         ],
         "collection": {
           "collectedDateTime": "2022-03-07T10:02:00+00:00"
         }
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
       }
     },
     {
-      "fullUrl": "urn:uuid:33a88119-6dbc-4bdf-809a-c1d822b74e90",
+      "fullUrl": "http://localhost:8080/fhir/Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90",
       "resource": {
         "resourceType": "Observation",
         "id": "33a88119-6dbc-4bdf-809a-c1d822b74e90",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -413,39 +325,38 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
         "hasMember": [
           {
-            "reference": "urn:uuid:47faffbf-34c0-45b2-9c65-285f89fd1521"
+            "reference": "Observation/47faffbf-34c0-45b2-9c65-285f89fd1521"
           },
           {
-            "reference": "urn:uuid:aa8aa37b-3a69-478f-a2be-947af624d7cb"
+            "reference": "Observation/aa8aa37b-3a69-478f-a2be-947af624d7cb"
           },
           {
-            "reference": "urn:uuid:3f98327b-f215-4bc5-bd52-ed6477a3da4a"
+            "reference": "Observation/3f98327b-f215-4bc5-bd52-ed6477a3da4a"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
       }
     },
     {
-      "fullUrl": "urn:uuid:47faffbf-34c0-45b2-9c65-285f89fd1521",
+      "fullUrl": "http://localhost:8080/fhir/Observation/47faffbf-34c0-45b2-9c65-285f89fd1521",
       "resource": {
         "resourceType": "Observation",
         "id": "47faffbf-34c0-45b2-9c65-285f89fd1521",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -467,13 +378,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -484,7 +395,7 @@
           "code": "umol/L"
         },
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "referenceRange": [
           {
@@ -498,18 +409,17 @@
             "reference": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/47faffbf-34c0-45b2-9c65-285f89fd1521"
       }
     },
     {
-      "fullUrl": "urn:uuid:aa8aa37b-3a69-478f-a2be-947af624d7cb",
+      "fullUrl": "http://localhost:8080/fhir/Observation/aa8aa37b-3a69-478f-a2be-947af624d7cb",
       "resource": {
         "resourceType": "Observation",
         "id": "aa8aa37b-3a69-478f-a2be-947af624d7cb",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -531,13 +441,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -548,7 +458,7 @@
           "code": "[iU]/L"
         },
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "referenceRange": [
           {
@@ -565,18 +475,17 @@
             "reference": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/aa8aa37b-3a69-478f-a2be-947af624d7cb"
       }
     },
     {
-      "fullUrl": "urn:uuid:3f98327b-f215-4bc5-bd52-ed6477a3da4a",
+      "fullUrl": "http://localhost:8080/fhir/Observation/3f98327b-f215-4bc5-bd52-ed6477a3da4a",
       "resource": {
         "resourceType": "Observation",
         "id": "3f98327b-f215-4bc5-bd52-ed6477a3da4a",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -598,13 +507,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -615,7 +524,7 @@
           "code": "[iU]/L"
         },
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "referenceRange": [
           {
@@ -629,18 +538,17 @@
             "reference": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/3f98327b-f215-4bc5-bd52-ed6477a3da4a"
       }
     },
     {
-      "fullUrl": "urn:uuid:a5c7f5e2-eb95-469b-b588-f7861c260ccb",
+      "fullUrl": "http://localhost:8080/fhir/Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb",
       "resource": {
         "resourceType": "Observation",
         "id": "a5c7f5e2-eb95-469b-b588-f7861c260ccb",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -662,45 +570,44 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
         "hasMember": [
           {
-            "reference": "urn:uuid:c6989afa-156a-4f7e-ab91-d4249680d8bf"
+            "reference": "Observation/c6989afa-156a-4f7e-ab91-d4249680d8bf"
           },
           {
-            "reference": "urn:uuid:f5a0e88f-a76a-4526-8927-579771471c58"
+            "reference": "Observation/f5a0e88f-a76a-4526-8927-579771471c58"
           },
           {
-            "reference": "urn:uuid:aa2151a3-3f5b-4f0d-9074-52563aa77c6c"
+            "reference": "Observation/aa2151a3-3f5b-4f0d-9074-52563aa77c6c"
           },
           {
-            "reference": "urn:uuid:3c6b11c8-83b6-4402-90b9-2e1e7400d7cc"
+            "reference": "Observation/3c6b11c8-83b6-4402-90b9-2e1e7400d7cc"
           },
           {
-            "reference": "urn:uuid:e6127f03-4a96-45d3-abd8-1adcf0189be4"
+            "reference": "Observation/e6127f03-4a96-45d3-abd8-1adcf0189be4"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
       }
     },
     {
-      "fullUrl": "urn:uuid:c6989afa-156a-4f7e-ab91-d4249680d8bf",
+      "fullUrl": "http://localhost:8080/fhir/Observation/c6989afa-156a-4f7e-ab91-d4249680d8bf",
       "resource": {
         "resourceType": "Observation",
         "id": "c6989afa-156a-4f7e-ab91-d4249680d8bf",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -722,13 +629,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -739,7 +646,7 @@
           "code": "mmol/L"
         },
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "referenceRange": [
           {
@@ -756,18 +663,17 @@
             "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/c6989afa-156a-4f7e-ab91-d4249680d8bf"
       }
     },
     {
-      "fullUrl": "urn:uuid:f5a0e88f-a76a-4526-8927-579771471c58",
+      "fullUrl": "http://localhost:8080/fhir/Observation/f5a0e88f-a76a-4526-8927-579771471c58",
       "resource": {
         "resourceType": "Observation",
         "id": "f5a0e88f-a76a-4526-8927-579771471c58",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -789,13 +695,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -806,7 +712,7 @@
           "code": "mmol/L"
         },
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "referenceRange": [
           {
@@ -823,18 +729,17 @@
             "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/f5a0e88f-a76a-4526-8927-579771471c58"
       }
     },
     {
-      "fullUrl": "urn:uuid:aa2151a3-3f5b-4f0d-9074-52563aa77c6c",
+      "fullUrl": "http://localhost:8080/fhir/Observation/aa2151a3-3f5b-4f0d-9074-52563aa77c6c",
       "resource": {
         "resourceType": "Observation",
         "id": "aa2151a3-3f5b-4f0d-9074-52563aa77c6c",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -856,13 +761,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -873,7 +778,7 @@
           "code": "mmol/L"
         },
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "referenceRange": [
           {
@@ -890,18 +795,17 @@
             "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/aa2151a3-3f5b-4f0d-9074-52563aa77c6c"
       }
     },
     {
-      "fullUrl": "urn:uuid:3c6b11c8-83b6-4402-90b9-2e1e7400d7cc",
+      "fullUrl": "http://localhost:8080/fhir/Observation/3c6b11c8-83b6-4402-90b9-2e1e7400d7cc",
       "resource": {
         "resourceType": "Observation",
         "id": "3c6b11c8-83b6-4402-90b9-2e1e7400d7cc",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -923,13 +827,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -940,7 +844,7 @@
           "code": "umol/L"
         },
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "referenceRange": [
           {
@@ -957,18 +861,17 @@
             "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/3c6b11c8-83b6-4402-90b9-2e1e7400d7cc"
       }
     },
     {
-      "fullUrl": "urn:uuid:e6127f03-4a96-45d3-abd8-1adcf0189be4",
+      "fullUrl": "http://localhost:8080/fhir/Observation/e6127f03-4a96-45d3-abd8-1adcf0189be4",
       "resource": {
         "resourceType": "Observation",
         "id": "e6127f03-4a96-45d3-abd8-1adcf0189be4",
         "meta": {
+          "versionId": "1",
+          "lastUpdated": "2023-11-21T01:53:23.578+00:00",
+          "source": "#vKeVSUjUOEMs9MGZ",
           "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Observation"
           ]
@@ -990,13 +893,13 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4",
+          "reference": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4",
           "display": "WELSH, Joel"
         },
         "issued": "2022-03-08T14:23:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:8a6d85b8-9837-4fed-a257-4cf207988338",
+            "reference": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338",
             "display": "TD008362 PATH LAB 001"
           }
         ],
@@ -1012,17 +915,128 @@
           }
         ],
         "specimen": {
-          "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
+          "reference": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
         },
         "derivedFrom": [
           {
             "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
           }
         ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Observation/e6127f03-4a96-45d3-abd8-1adcf0189be4"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:138ffee6-fbc1-49e2-bfbc-e14b777ab62a",
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Composition"
+          ]
+        },
+        "identifier": {
+          "system": "http://Y8J7D-pathlab001.com/report",
+          "value": "REP-20220308-008902"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "4241000179101",
+              "display": "Laboratory report"
+            }
+          ],
+          "text": "Laboratory report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "371525003",
+                "display": "Clinical procedure report"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4"
+        },
+        "date": "2022-03-30T11:24:26+01:00",
+        "author": [
+          {
+            "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+          }
+        ],
+        "title": "Laboratory report",
+        "attester": [
+          {
+            "mode": "professional",
+            "party": {
+              "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+            }
+          },
+          {
+            "mode": "legal",
+            "time": "2022-03-25T11:00:00+01:00",
+            "party": {
+              "reference": "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+            }
+          }
+        ],
+        "custodian": {
+          "reference": "urn:uuid:3c43b5b3-06d6-445f-ae9a-48d5f05df434"
+        },
+        "section": [
+          {
+            "title": "Laboratory examinations",
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-RecordStandardHeadings",
+                  "code": "test-result",
+                  "display": "Test result"
+                }
+              ]
+            },
+            "section": [
+              {
+                "title": "Liver functions tests",
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "26958001",
+                      "display": "Hepatic function panel"
+                    }
+                  ]
+                },
+                "entry": [
+                  {
+                    "reference": "urn:uuid:33a88119-6dbc-4bdf-809a-c1d822b74e90"
+                  }
+                ]
+              },
+              {
+                "title": "Urea and electrolytes",
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "26958001",
+                      "display": "Hepatic function panel"
+                    }
+                  ]
+                },
+                "entry": [
+                  {
+                    "reference": "urn:uuid:a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     }
   ]

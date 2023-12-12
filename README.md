@@ -61,7 +61,7 @@ Description of parameters
 * `_include=DiagnosticReport:result`, include the root Observations
 * `_include:iterate=Observation:has-member`, include all Observations that are members of each root Observation, Note: this query does not facilate deeper nesting of Observations
 
-This searchset Bundle is then transformed into a Document by inserting a Composition and the required metadata, as well as removing any redundant elements.  The python script [report.py](operations/report.py) provides this function in the pipeline.
+This searchset Bundle is then transformed into a Document by inserting a Composition and the required metadata, as well as removing any redundant elements.  The python script [document.py](operations/document/document.py) provides this function in the pipeline.
 
 ### Output the example Document
 

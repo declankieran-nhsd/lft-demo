@@ -31,7 +31,7 @@ jobs:
         run: curl -X POST -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/TRANSACTION-path-R4-example-bundle-LFT-UandE-report.json http://localhost:8080/fhir
 
       - name: Create the Laboratory Report using custom Operation (_query not supported on HAPI STARTER yet)
-        run: python operations/document.py
+        run: python operations/document/document.py
 
       - name: Query the Document Bundle
         run: sleep 30; curl http://localhost:8080/fhir/Bundle?identifier=REP-20220308-008902 | jq '.entry[0].resource' > LFT_Laboratory_Report_Custom_Operation.json
