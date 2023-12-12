@@ -130,6 +130,7 @@ def organise_by_section(composition, organised_observations):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--document", type=str, help="The document Bundle in JSON format.", required=True)
+parser.add_argument("-t", "--template", type=str, help="The jinja2 template to use.", required=True)
 parser.add_argument("-o", "--out", type=str, help="File path to output html and pdf render.")
 args = parser.parse_args()
 document = json.load(open(args.document))
