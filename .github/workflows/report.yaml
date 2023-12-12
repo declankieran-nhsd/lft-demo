@@ -46,7 +46,7 @@ jobs:
         run: curl http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a/\$document?persist=true > LFT_Laboratory_Report_HAPI_document_Operation.json
 
       - name: Render the report in html and pdf
-        run: python operations/render/render.py -d LFT_Laboratory_Report_Custom_Operation.json -t operations/render/report.j2 -o LFT_Laboratory_Report
+        run: cd operations/render; python render.py -d ../../LFT_Laboratory_Report_Custom_Operation.json -t report.j2 -o ../../LFT_Laboratory_Report
 
       - name: Output the Document Bundle generated with the $document operation
         uses: actions/upload-artifact@v3
