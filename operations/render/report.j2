@@ -8,106 +8,82 @@
 
 <body>
   <div><h1>{{composition["title"]}}</h1><hr /><hr /></div>
-  <div>
-    <table width="100%">
-      <tbody>
-        <h2>Patient details</h2>
-        <tr>
-          <th>Patient name</th>
-          <td>{{patient["name"][0]["given"][0]}} {{patient["name"][0]["family"]}}</td>
-        </tr>
-        <tr>
-          <th>Patient gender</th>
-          <td>{{patient["gender"]}}</td>
-        </tr>
-        <tr>
-          <th>Patient DOB</th>
-          <td>{{patient["birthDate"]}}</td>
-        </tr>
-        <tr>
-          <th>Patient Identifiers</th>
-          <td>
-            <div>
-              <table>
-                <tbody>
-                  {% for id in patient["identifier"] %}
-                  <tr>
-                    <td><b>Type:</b> {% set split_list = id["system"].split('/') %}{{ split_list[-1] }}</td>
-                    <td><b>Value:</b> {{id["value"]}}</td>
-                  </tr>
-                  {% endfor %}
-          </td>
-      </tbody>
-    </table>
-  </div>
-  </tr>
-  </tbody>
-  </table>
-  </div>
-  <div>
-    <table width="100%">
-      <tbody>
-        <h2>Specimen details</h2>
-        {% for specimen in specimens%}
-        <tr>
-          <th>Business identifier:</th>
-          <td>{{specimen["identifier"][0]["value"]}}</td>
-        </tr>
-        <tr>
-          <th>Accession identifier:</th>
-          <td>{{specimen["accessionIdentifier"]["value"]}}</td>
-        </tr>
-        <tr>
-          <th>Type:</th>
-          <td>{{specimen["type"]["coding"][0]["code"]}} | {{specimen["type"]["coding"][0]["display"]}} |</td>
-        </tr>
-        <tr>
-          <th>Collection time:</th>
-          <td>{% set split_list = specimen["collection"]["collectedDateTime"].split('T') %}{{ split_list[0] }} {{ split_list[1] }}</td>
-        </tr>
+  <div><table width="100%"><tbody>
+    <h2>Patient details</h2>
+    <tr>
+      <th>Patient name</th>
+      <td>{{patient["name"][0]["given"][0]}} {{patient["name"][0]["family"]}}</td>
+    </tr>
+    <tr>
+      <th>Patient gender</th>
+      <td>{{patient["gender"]}}</td>
+    </tr>
+    <tr>
+      <th>Patient DOB</th>
+      <td>{{patient["birthDate"]}}</td>
+    </tr>
+    <tr>
+      <th>Patient Identifiers</th>
+      <td><div><table><tbody>
+        {% for id in patient["identifier"] %}
+          <tr>
+            <td><b>Type:</b> {% set split_list = id["system"].split('/') %}{{ split_list[-1] }}</td>
+            <td><b>Value:</b> {{id["value"]}}</td>
+          </tr>
         {% endfor %}
-      </tbody>
-    </table>
-  </div>
+      </tbody></table></div></td>
+    </tr>
+  </tbody></table></div>
+  <div><table width="100%"><tbody>
+    <h2>Specimen details</h2>
+    {% for specimen in specimens%}
+    <tr>
+      <th>Business identifier:</th>
+      <td>{{specimen["identifier"][0]["value"]}}</td>
+    </tr>
+    <tr>
+      <th>Accession identifier:</th>
+      <td>{{specimen["accessionIdentifier"]["value"]}}</td>
+    </tr>
+    <tr>
+      <th>Type:</th>
+      <td>{{specimen["type"]["coding"][0]["code"]}} | {{specimen["type"]["coding"][0]["display"]}} |</td>
+    </tr>
+    <tr>
+      <th>Collection time:</th>
+      <td>{% set split_list = specimen["collection"]["collectedDateTime"].split('T') %}{{ split_list[0] }} {{ split_list[1] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody></table></div>
   {% for section in sections %}
-  <h2>{{section[0]}}</h2>
-  <hr />
-  <hr />
-  <div>
-    <table width="100%">
-      <tbody>
-        <h3>Results</h3>
-        {% for subsection in section[1] %}
-        <div>
-          <table width="100%">
-            <tbody>
-              <tr>
-                <th>Panel</th>
-                <td>{{subsection["code"]}} | {{subsection["item"][4]}} |</td>
-              </tr>
-              <tr>
-                <th>Specimen barcode</th>
-                <td>{{subsection["item"][0]}}</td>
-              </tr>
-              <tr>
-                <th>Item code</th>
-                <td>{{subsection["item"][1]["code"]}}</td>
-              </tr>
-              <tr>
-                <th>Full name</th>
-                <td>{{subsection["item"][1]["display"]}}</td>
-              </tr>
-              <tr>
-                <th>Result value</th>
-                <td>{{subsection["item"][2]["value"]}} {{subsection["item"][2]["unit"]}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+  <h2>{{section[0]}}</h2><hr /><hr />
+  <div><table width="100%"><tbody>
+    <h3>Results</h3>
+    {% for subsection in section[1] %}
+    <div><table width="100%"><tbody>
+      <tr>
+        <th>Panel</th>
+        <td>{{subsection["code"]}} | {{subsection["item"][4]}} |</td>
+      </tr>
+      <tr>
+        <th>Specimen barcode</th>
+        <td>{{subsection["item"][0]}}</td>
+      </tr>
+      <tr>
+        <th>Item code</th>
+        <td>{{subsection["item"][1]["code"]}}</td>
+      </tr>
+      <tr>
+        <th>Full name</th>
+        <td>{{subsection["item"][1]["display"]}}</td>
+      </tr>
+      <tr>
+        <th>Result value</th>
+        <td>{{subsection["item"][2]["value"]}} {{subsection["item"][2]["unit"]}}</td>
+      </tr>
+    </tbody></table></div>
+    {% endfor %}
+  </tbody></table></div>
   {% endfor %}
   </head>
 </body>
