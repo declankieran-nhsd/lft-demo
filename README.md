@@ -83,6 +83,10 @@ See the [composition-operation-document](https://build.fhir.org/composition-oper
 
 Again, the the resulting document output is published as an artefact in the pipeline as above.
 
+## Render the document into HTML and PDF using another script
+
+The python script [render.py](operations/render/render.py) is acting as a custom operation to render the document bundle.  This consists of a python script [render.py](operations/render/render.py), a [Jinja2](https://pypi.org/project/Jinja2) [template](operations/render/report.j2) and a CSS [stylesheet](operations/render/style.css).  These artefacts are also output in the pipeline.
+
 ## POSTMAN Examples
 
 The entire set of interactions is also included in a [postman collection](postman/lft-example-interactions.postman_collection.json).  This includes:
