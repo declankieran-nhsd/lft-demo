@@ -18,7 +18,7 @@
         <h2>Patient details</h2>
         <tr>
           <th>Patient name</th>
-          <td>{{patient["name"][0]["given"]}} {{patient["name"][0]["family"]}}</td>
+          <td>{{patient["name"][0]["given"][0]}} {{patient["name"][0]["family"]}}</td>
         </tr>
         <tr>
           <th>Patient gender</th>
@@ -90,7 +90,7 @@
         </tr>
         <tr>
           <th>Collection time:</th>
-          <td>{{specimen["collection"]["collectedDateTime"]}}</td>
+          <td>{% set split_list = specimen["collection"]["collectedDateTime"].split('T') %}{{ split_list[0] }} {{ split_list[1] }}</td>
         </tr>
         {% endfor %}
       </tbody>

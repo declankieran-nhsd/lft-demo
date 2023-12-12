@@ -11,9 +11,10 @@ from fhir.resources.practitioner import Practitioner
 from fhir.resources.servicerequest import ServiceRequest
 from fhir.resources.specimen import Specimen
 from fhir.resources.substance import Substance
-
+import argparse
 import json
 from jinja2 import Template
+import pdfkit
 
 def select_resources(document, resourceType):
     if 'entry' not in document:
@@ -125,9 +126,13 @@ def organise_by_section(composition, organised_observations):
 
     return organised
 
+############################# MAIN #############################
 
-
-document = json.load(open('lft-report.json'))
+parser = argparse.ArgumentParser()
+parser.add_argument("-d", "--document", type=str, help="The document Bundle in JSON format.", required=True)
+parser.add_argument("-o", "--out", type=str, help="File path to output html and pdf render.")
+args = parser.parse_args()
+document = json.load(open(args.document))
 
 composition = select_resources(document, 'Composition')
 diagnostic_report = select_resources(document, 'DiagnosticReport')
@@ -156,7 +161,11 @@ render = t.render(composition=composition[0],
 
 print(render)
 
-#for section in sections:
-#    print(section)
+if args.out is not None:
+    html = open(args.out + '.html', 'w')
+    html.writelines(render)
+    html.close()
+    pdfkit.from_file(args.out + '.html', args.out + '.pdf')
+
 
 
