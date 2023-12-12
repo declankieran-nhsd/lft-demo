@@ -1,16 +1,5 @@
 # https://build.fhir.org/ig/hl7-eu/laboratory/artifacts.html#structures-resource-profiles
 import copy
-from fhir.resources.bodystructure import BodyStructure
-from fhir.resources.bundle import Bundle
-from fhir.resources.composition import Composition
-from fhir.resources.diagnosticreport import DiagnosticReport
-from fhir.resources.observation import Observation
-from fhir.resources.patient import Patient
-from fhir.resources.practitionerrole import PractitionerRole
-from fhir.resources.practitioner import Practitioner
-from fhir.resources.servicerequest import ServiceRequest
-from fhir.resources.specimen import Specimen
-from fhir.resources.substance import Substance
 import argparse
 import json
 from jinja2 import Template
@@ -78,9 +67,7 @@ def organise_observations(observations, specimens):
     items = []
 
     for observation in observations:
-        # TODO should use system on .code to differentiate, need config...
-        # using derivedFrom would be better for deeply nested, as items nay also have hasMember
-        # if "hasMember" in observation:        
+        # relying on derivedFrom here feels like a bit of a hack     
         if "derivedFrom" not in observation:
             panel = get_panel_values(observation, specimens)
             panels.append(panel)
@@ -101,14 +88,6 @@ def organise_observations(observations, specimens):
 
 def organise_by_section(composition, organised_observations):
     organised = []
-
-    #for panel in organised_observations:
-    #    panel_code = panel.key()
-    #    # TODO assuming one section with subsections, make this genertic to handle, single sections, multiple single sections
-    #    # and multiple sections with multiple subsections etc...
-    #    for section in composition["section"][0]["section"]:
-    #        if(section["code"]["coding"][0]["code"] == panel_code):
-
     
     for section in composition["section"][0]["section"]:
         panels = []
@@ -128,6 +107,7 @@ def organise_by_section(composition, organised_observations):
 
 ############################# MAIN #############################
 
+# Get args
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--document", type=str, help="The document Bundle in JSON format.", required=True)
 parser.add_argument("-t", "--template", type=str, help="The jinja2 template to use.", required=True)
@@ -135,33 +115,33 @@ parser.add_argument("-o", "--out", type=str, help="File path to output html and 
 args = parser.parse_args()
 document = json.load(open(args.document))
 
+# Get resources
 composition = select_resources(document, 'Composition')
 diagnostic_report = select_resources(document, 'DiagnosticReport')
 observations = select_resources(document, 'Observation')
 patient = select_resources(document, 'Patient')
-practitionerrole = select_resources(document, 'PractitionerRole')
-practitioner = select_resources(document, 'Practitioner')
-servicerequest = select_resources(document, 'ServiceRequest')
 specimens = select_resources(document, 'Specimen')
 
+# Organise panels and sections
 organised_observations = organise_observations(observations, specimens)
 sections = organise_by_section(composition[0], organised_observations)
 
+# Setup template
 template = open("report.j2").read()
 stylesheet = open("style.css").read()
 t = Template(template)
 
+# Render the template
 render = t.render(composition=composition[0],
                   patient=patient[0],
-                  #author=practitioner[0],
-                  #attester_professional=practitioner[0],
-                  #attester_legal=practitioner[0],
                   specimens=specimens,
                   sections=sections,
                   stylesheet=stylesheet)
 
+# Print html to stdout
 print(render)
 
+# Output html and pdf files
 if args.out is not None:
     html = open(args.out + '.html', 'w')
     html.writelines(render)
