@@ -61,7 +61,7 @@ Description of parameters
 * `_include=DiagnosticReport:result`, include the root Observations
 * `_include:iterate=Observation:has-member`, include all Observations that are members of each root Observation, Note: this query does not facilate deeper nesting of Observations
 
-This searchset Bundle is then transformed into a Document by inserting a Composition and the required metadata, as well as removing any redundant elements.  The python script [report.py](operations/report.py) provides this function in the pipeline.
+This searchset Bundle is then transformed into a Document by inserting a Composition and the required metadata, as well as removing any redundant elements.  The python script [document.py](operations/document/document.py) provides this function in the pipeline.
 
 ### Output the example Document
 
@@ -82,6 +82,10 @@ See the [composition-operation-document](https://build.fhir.org/composition-oper
 ### Output the example Document
 
 Again, the the resulting document output is published as an artefact in the pipeline as above.
+
+## Render the document into HTML and PDF using another script
+
+The python script [render.py](operations/render/render.py) is acting as a custom operation to render the document bundle.  This consists of a python script [render.py](operations/render/render.py), a [Jinja2](https://pypi.org/project/Jinja2) [template](operations/render/report.j2) and a CSS [stylesheet](operations/render/style.css).  These artefacts are also output in the pipeline.
 
 ## POSTMAN Examples
 

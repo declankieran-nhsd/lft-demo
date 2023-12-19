@@ -13,7 +13,10 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - run: pip install requests
+      - run: pip install requests jinja2 pdfkit fhir.resources
+
+      - name: Install wkhtmltopdf
+        run: sudo apt install -y wkhtmltopdf
 
       - name: Copy UKCore package to folder for docker mount
         run: mkdir ~/package; cp packages/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz ~/package 
@@ -31,7 +34,7 @@ jobs:
         run: curl -X POST -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/TRANSACTION-path-R4-example-bundle-LFT-UandE-report.json http://localhost:8080/fhir
 
       - name: Create the Laboratory Report using custom Operation (_query not supported on HAPI STARTER yet)
-        run: python operations/document.py
+        run: python operations/document/document.py
 
       - name: Query the Document Bundle
         run: sleep 30; curl http://localhost:8080/fhir/Bundle?identifier=REP-20220308-008902 | jq '.entry[0].resource' > LFT_Laboratory_Report_Custom_Operation.json
@@ -41,6 +44,9 @@ jobs:
 
       - name: Persist the Document Bundle with GET on $document
         run: curl http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a/\$document?persist=true > LFT_Laboratory_Report_HAPI_document_Operation.json
+
+      - name: Render the report in html and pdf
+        run: cd operations/render; python render.py -d ../../LFT_Laboratory_Report_Custom_Operation.json -t report.j2 -o ../../LFT_Laboratory_Report
 
       - name: Output the Document Bundle generated with the $document operation
         uses: actions/upload-artifact@v3

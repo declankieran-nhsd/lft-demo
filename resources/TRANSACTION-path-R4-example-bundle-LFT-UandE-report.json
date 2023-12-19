@@ -39,8 +39,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338"
+        "method": "PUT",
+        "url": "Organization/8a6d85b8-9837-4fed-a257-4cf207988338"
       }
     },
     {
@@ -72,8 +72,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Organization/3c43b5b3-06d6-445f-ae9a-48d5f05df434"
+        "method": "PUT",
+        "url": "Organization/3c43b5b3-06d6-445f-ae9a-48d5f05df434"
       }
     },
     {
@@ -106,8 +106,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe"
+        "method": "PUT",
+        "url": "Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe"
       }
     },
     {
@@ -163,8 +163,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4"
+        "method": "PUT",
+        "url": "Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4"
       }
     },
     {
@@ -215,8 +215,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "ServiceRequest/1c38d507-9ad7-4b49-ba91-7da204842cac"
+        "method": "PUT",
+        "url": "ServiceRequest/1c38d507-9ad7-4b49-ba91-7da204842cac"
       }
     },
     {
@@ -267,8 +267,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "ServiceRequest/8660ef6a-65ef-408f-92ce-b4d6d03d783c"
+        "method": "PUT",
+        "url": "ServiceRequest/8660ef6a-65ef-408f-92ce-b4d6d03d783c"
       }
     },
     {
@@ -333,8 +333,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "DiagnosticReport/35d46ca1-f253-4c97-b7ee-fb5fccdf6c20"
+        "method": "PUT",
+        "url": "DiagnosticReport/35d46ca1-f253-4c97-b7ee-fb5fccdf6c20"
       }
     },
     {
@@ -382,8 +382,8 @@
         }
       },
       "request": {
-          "method": "PUT",
-          "url": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
+        "method": "PUT",
+        "url": "Specimen/bab0eaec-1ec5-4598-b660-90bb38a1030d"
       }
     },
     {
@@ -436,8 +436,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
+        "method": "PUT",
+        "url": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
       }
     },
     {
@@ -492,11 +492,16 @@
               "value": 21
             }
           }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
+          }
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/47faffbf-34c0-45b2-9c65-285f89fd1521"
+        "method": "PUT",
+        "url": "Observation/47faffbf-34c0-45b2-9c65-285f89fd1521"
       }
     },
     {
@@ -554,11 +559,16 @@
               "value": 130
             }
           }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
+          }
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/aa8aa37b-3a69-478f-a2be-947af624d7cb"
+        "method": "PUT",
+        "url": "Observation/aa8aa37b-3a69-478f-a2be-947af624d7cb"
       }
     },
     {
@@ -613,11 +623,16 @@
               "value": 40
             }
           }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
+          }
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/3f98327b-f215-4bc5-bd52-ed6477a3da4a"
+        "method": "PUT",
+        "url": "Observation/3f98327b-f215-4bc5-bd52-ed6477a3da4a"
       }
     },
     {
@@ -676,8 +691,8 @@
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+        "method": "PUT",
+        "url": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
       }
     },
     {
@@ -735,11 +750,16 @@
               "value": 7.8
             }
           }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+          }
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/c6989afa-156a-4f7e-ab91-d4249680d8bf"
+        "method": "PUT",
+        "url": "Observation/c6989afa-156a-4f7e-ab91-d4249680d8bf"
       }
     },
     {
@@ -797,11 +817,16 @@
               "value": 146
             }
           }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+          }
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/f5a0e88f-a76a-4526-8927-579771471c58"
+        "method": "PUT",
+        "url": "Observation/f5a0e88f-a76a-4526-8927-579771471c58"
       }
     },
     {
@@ -859,11 +884,16 @@
               "value": 5.3
             }
           }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+          }
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/aa2151a3-3f5b-4f0d-9074-52563aa77c6c"
+        "method": "PUT",
+        "url": "Observation/aa2151a3-3f5b-4f0d-9074-52563aa77c6c"
       }
     },
     {
@@ -921,11 +951,16 @@
               "value": 104
             }
           }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+          }
         ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/3c6b11c8-83b6-4402-90b9-2e1e7400d7cc"
+        "method": "PUT",
+        "url": "Observation/3c6b11c8-83b6-4402-90b9-2e1e7400d7cc"
       }
     },
     {
@@ -978,11 +1013,16 @@
         ],
         "specimen": {
           "reference": "urn:uuid:bab0eaec-1ec5-4598-b660-90bb38a1030d"
-        }
+        },
+        "derivedFrom": [
+          {
+            "reference": "Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+          }
+        ]
       },
       "request": {
-          "method": "PUT",
-          "url": "Observation/e6127f03-4a96-45d3-abd8-1adcf0189be4"
+        "method": "PUT",
+        "url": "Observation/e6127f03-4a96-45d3-abd8-1adcf0189be4"
       }
     }
   ]
