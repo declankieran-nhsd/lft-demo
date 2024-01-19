@@ -22,7 +22,7 @@ jobs:
         run: mkdir ~/package; cp packages/0.0.8-pre-release.tgz ~/package/package.tgz
 
       - name: Run FHIR server (Loading package, but not currently using validate endpoint - TODO)
-        run: docker run -v ~/package:/package -p 8080:8080 -e hapi.fhir.daoconfig_client_id_strategy=UUID -e hapi.fhir.client_id_strategy=ANY -e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild -e hapi.fhir.implementationguides.ukcore.version=0.0.8-pre-release -e hapi.fhir.implementationguides.ukcore.url=file:///package/package.tgz hapiproject/hapi:latest
+        run: docker run -d -v ~/package:/package -p 8080:8080 -e hapi.fhir.daoconfig_client_id_strategy=UUID -e hapi.fhir.client_id_strategy=ANY -e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild -e hapi.fhir.implementationguides.ukcore.version=0.0.8-pre-release -e hapi.fhir.implementationguides.ukcore.url=file:///package/package.tgz hapiproject/hapi:latest
 
       - name: Sleep to give server time to start
         run: sleep 120
