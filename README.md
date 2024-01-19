@@ -103,3 +103,10 @@ The entire set of interactions is also included in a [postman collection](postma
   * A query for the Report using the primary business identifier used, i.e. REP-20220308-008902
 
 **Note**: This assumes that a FHIR server is running at localhost:8080
+
+**ISSUES**: A custodian required is required to be in the bundle based on the guidance, however there is no default SearchParameter, this makes it a bit clunky to fetch the resources for the document.  I would have expected it to be possible get them all in one query, or at the very least those that are required for it to be valid from a signage perspective.
+
+DiagnosticReport.basedon.type might need profiled if it is to be used, not sure why its useful though
+
+Took out Composition.category, seems to be some issue with using the binding from UKCore-Composition
+

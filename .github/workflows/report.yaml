@@ -19,10 +19,10 @@ jobs:
         run: sudo apt install -y wkhtmltopdf
 
       - name: Copy UKCore package to folder for docker mount
-        run: mkdir ~/package; cp packages/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz ~/package 
+        run: mkdir ~/package; cp packages/0.0.8-pre-release.tgz ~/package/package.tgz
 
-      - name: Run FHIR server
-        run: docker run -d -v ~/package:/package -p 8080:8080 -e hapi.fhir.daoconfig_client_id_strategy=UUID -e hapi.fhir.client_id_strategy=ANY -e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild -e hapi.fhir.implementationguides.ukcore.version=0.0.3-pre-release -e hapi.fhir.implementationguides.ukcore.url=file:///package/ukcore-0.0.3-pre-release_with-precalculated-snapshots.tgz hapiproject/hapi:v6.2.2
+      - name: Run FHIR server (Loading package, but not currently using validate endpoint - TODO)
+        run: docker run -v ~/package:/package -p 8080:8080 -e hapi.fhir.daoconfig_client_id_strategy=UUID -e hapi.fhir.client_id_strategy=ANY -e hapi.fhir.implementationguides.ukcore.name=fhir.r4.ukcore.stu3.currentbuild -e hapi.fhir.implementationguides.ukcore.version=0.0.8-pre-release -e hapi.fhir.implementationguides.ukcore.url=file:///package/package.tgz hapiproject/hapi:latest
 
       - name: Sleep to give server time to start
         run: sleep 120
@@ -38,6 +38,9 @@ jobs:
 
       - name: Query the Document Bundle
         run: sleep 30; curl http://localhost:8080/fhir/Bundle?identifier=REP-20220308-008902 | jq '.entry[0].resource' > LFT_Laboratory_Report_Custom_Operation.json
+
+      - name: Validate custom Document Bundle with UKCore
+        run: java -jar validator_cli.jar LFT_Laboratory_Report_Custom_Operation.json -ig packages/0.0.8-pre-release.tgz -sct uk -html-output LFT_Laboratory_Report_UKCore_Validation.html
 
       - name: Put corresponding example Composition resource for report
         run: curl -X PUT -H "Content-type:application/fhir+json;fhirVersion=4.0" -d @resources/path-R4-example-composition-LFT-UandE-example.json http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a

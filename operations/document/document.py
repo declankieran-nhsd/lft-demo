@@ -20,6 +20,7 @@ diagnosticreport_report_params = {
     ], 
     '_include:iterate': [
         'ServiceRequest:patient', 
+        'ServiceRequest:requester',
         'Observation:has-member'
     ]
 }
@@ -58,114 +59,102 @@ bundle_document.update(bundle_timestamp)
 
 # Example composition to inject into document bundle.
 bundle_entry_composition = \
-    {
-      "fullUrl" : "urn:uuid:138ffee6-fbc1-49e2-bfbc-e14b777ab62a",
-      "resource" : {
-        "resourceType" : "Composition",
-        "id" : "138ffee6-fbc1-49e2-bfbc-e14b777ab62a",
-        "meta" : {
-          "profile" : [
+   {
+      "fullUrl": "http://localhost:8080/fhir/Composition/138ffee6-fbc1-49e2-bfbc-e14b777ab62a",
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
             "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Composition"
           ]
         },
-        "identifier" : {
+        "identifier": {
           "system": "http://Y8J7D-pathlab001.com/report",
           "value": "REP-20220308-008902"
         },
-        "status" : "final",
-        "type" : {
-          "coding" : [
+        "status": "final",
+        "type": {
+          "coding": [
             {
-              "system" : "http://snomed.info/sct",
-              "code" : "4241000179101",
-              "display" : "Laboratory report"
+              "system": "http://snomed.info/sct",
+              "code": "4241000179101",
+              "display": "Laboratory report"
             }
           ],
-          "text" : "Laboratory report"
+          "text": "Laboratory report"
         },
-        "category" : [
+        "subject": {
+          "reference": "http://localhost:8080/fhir/Patient/ab87a3f8-1d37-44a9-804e-5e962598a6e4"
+        },
+        "date": "2022-03-30T11:24:26+01:00",
+        "author": [
           {
-            "coding" : [
-              {
-                "system" : "http://snomed.info/sct",
-                "code" : "371525003",
-                "display" : "Clinical procedure report"
-              }
-            ]
+            "reference": "http://localhost:8080/fhir/Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe"
           }
         ],
-        "subject" : {
-          "reference" : "urn:uuid:ab87a3f8-1d37-44a9-804e-5e962598a6e4"
-        },
-        "date" : "2022-03-30T11:24:26+01:00",
-        "author" : [
+        "title": "Laboratory report",
+        "attester": [
           {
-            "reference" : "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
-          }
-        ],
-        "title" : "Laboratory report",
-        "attester" : [
-          {
-            "mode" : "professional",
-            "party" : {
-              "reference" : "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+            "mode": "professional",
+            "party": {
+              "reference": "http://localhost:8080/fhir/Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe"
             }
           },
           {
-            "mode" : "legal",
-            "time" : "2022-03-25T11:00:00+01:00",
-            "party" : {
-              "reference" : "urn:uuid:9a835acf-d715-4d84-8dcf-a8435f6417fe"
+            "mode": "legal",
+            "time": "2022-03-25T11:00:00+01:00",
+            "party": {
+              "reference": "http://localhost:8080/fhir/Practitioner/9a835acf-d715-4d84-8dcf-a8435f6417fe"
             }
           }
         ],
-        "custodian" : {
-          "reference" : "urn:uuid:3c43b5b3-06d6-445f-ae9a-48d5f05df434"
+        "custodian": {
+          "reference": "http://localhost:8080/fhir/Organization/3c43b5b3-06d6-445f-ae9a-48d5f05df434"
         },
-        "section" : [
+        "section": [
           {
-            "title" : "Laboratory examinations",
-            "code" : {
-              "coding" : [
+            "title": "Laboratory examinations",
+            "code": {
+              "coding": [
                 {
-                  "system" : "https://fhir.hl7.org.uk/CodeSystem/UKCore-RecordStandardHeadings",
-                  "code" : "test-result",
-                  "display" : "Test result"
+                  "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-RecordStandardHeadings",
+                  "code": "test-result",
+                  "display": "Test result"
                 }
               ]
             },
-            "section" : [
+            "section": [
               {
-                "title" : "Liver functions tests",
-                "code" : {
-                  "coding" : [
+                "title": "Liver functions tests",
+                "code": {
+                  "coding": [
                     {
-                      "system" : "http://snomed.info/sct",
-                      "code" : "26958001",
-                      "display" : "Hepatic function panel"
+                      "system": "http://snomed.info/sct",
+                      "code": "26958001",
+                      "display": "Hepatic function panel"
                     }
                   ]
                 },
-                "entry" : [
+                "entry": [
                   {
-                    "reference" : "urn:uuid:33a88119-6dbc-4bdf-809a-c1d822b74e90"
+                    "reference": "http://localhost:8080/fhir/Observation/33a88119-6dbc-4bdf-809a-c1d822b74e90"
                   }
                 ]
               },
               {
-                "title" : "Urea and electrolytes",
-                "code" : {
-                  "coding" : [
+                "title": "Urea and electrolytes",
+                "code": {
+                  "coding": [
                     {
-                      "system" : "http://snomed.info/sct",
-                      "code" : "26958001",
-                      "display" : "Hepatic function panel"
+                      "system": "http://snomed.info/sct",
+                      "code": "26958001",
+                      "display": "Hepatic function panel"
                     }
                   ]
                 },
-                "entry" : [
+                "entry": [
                   {
-                    "reference" : "urn:uuid:a5c7f5e2-eb95-469b-b588-f7861c260ccb"
+                    "reference": "http://localhost:8080/fhir/Observation/a5c7f5e2-eb95-469b-b588-f7861c260ccb"
                   }
                 ]
               }
@@ -176,7 +165,16 @@ bundle_entry_composition = \
     }
 
 # Add the Composition to the Bundle to complete the document
-bundle_document['entry'].append(bundle_entry_composition)
+bundle_document['entry'].insert(0, bundle_entry_composition)
+
+# There is no default parameter for DiagnosticReport.custodian, would be easy enough to make a SearchParameter and drop it.
+# TODO raise a HL7 Jira ticket for it.
+# Just query and drop into bundle as a reminder to create a ticket for it
+custodian_uri = "http://localhost:8080/fhir/Organization/3c43b5b3-06d6-445f-ae9a-48d5f05df434"
+custodian_resource = json.loads(requests.get(custodian_uri).text)
+custodian_bundle_entry = {"fullUrl": custodian_uri, "resource": custodian_resource}
+bundle_document['entry'].append(custodian_bundle_entry)
+
 lab_report = json.dumps(bundle_document)
 
 # Update the FHIR server with the document. PUT will create if none exist, see - https://hl7.org/fhir/http.html#update
