@@ -128,8 +128,8 @@
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatus",
-                      "code": "number-present-and-verified",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland",
+                      "code": "01",
                       "display": "Number present and verified"
                     }
                   ]
@@ -290,11 +290,11 @@
         "basedOn": [
           {
             "reference": "urn:uuid:1c38d507-9ad7-4b49-ba91-7da204842cac",
-            "type": "http://hl7.org/fhir/StructureDefinition/UKCore-ServiceRequest"
+            "type": "ServiceRequest"
           },
           {
             "reference": "urn:uuid:8660ef6a-65ef-408f-92ce-b4d6d03d783c",
-            "type": "http://hl7.org/fhir/StructureDefinition/UKCore-ServiceRequest"
+            "type": "ServiceRequest"
           }
         ],
         "status": "final",
